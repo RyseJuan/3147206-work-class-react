@@ -6,7 +6,7 @@ import { userSchema } from '../schemas/userSchema.js';
 
 export default function UserRegisterForm() {
 
-    const [documentTypes, setDocumentTypes] = useState([]);
+    const [documentType, setDocumentType] = useState([]);
     const [formData, setFormData] = useState({
         userName: "",
         userEmail: "",
@@ -18,7 +18,7 @@ export default function UserRegisterForm() {
     const [errors, setErrors] = useState({})
 
     useEffect(() => {
-        getDocumentTypes().then(setDocumentTypes);
+        getDocumentTypes().then(setDocumentType);
     }, [])
 
     // ==============================================
@@ -69,10 +69,6 @@ export default function UserRegisterForm() {
         
     };
 
-    const handleNameChange = (e) => {
-        console.log("Nombre: ", e.target.value);
-    }
-
     return (
         <div>
             <h1 className="text-text-primary text-2x1 mb-6">
@@ -116,7 +112,7 @@ export default function UserRegisterForm() {
                         label="Tipo de documento"
                         name="userDocumentType"
                         value={formData.userDocumentType}
-                        options={documentTypes}
+                        options={documentType}
                         onChange={handleChange}
                         error={errors.userDocumentType}
                     />

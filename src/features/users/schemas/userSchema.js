@@ -15,7 +15,7 @@ export const userSchema = z.object({
         .string()
         .regex(/^[0-9]{10}$/, "El telefono debe tener 10 digitos"),
         
-    userDocumentTypes: z
+    userDocumentType: z
         .string()
         .min(1, "Debe seleccionar un tipo de documento"),
         
