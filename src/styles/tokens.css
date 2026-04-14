@@ -89,30 +89,34 @@
     --neutrals-900: #E9E9E9;
     --neutrals-950: #F6F6F6;
 
-    /* Font family */
-    --main-font: Work Sans, Arial, sans-serif;
-    --secundart-font: Calibri, Helvetica, Arial;
+     /* Font-family */
+    --main-font: Work Sans, Arial, sasn-serif;
+    --secondary-font: Calibri, Helvetica, Arial;
 
     /* Font weights crudos */
-    --font-weight-light:300;
+    --font-weight-light: 300;    
     --font-weight-regular: 400;
-    --font-weight-bold:700;
+    --font-weight-bold: 700;
 
     /* Font variants */
-    --light-variant: light;
+    --regular-variant: regular;
     --medium-variant: medium;
-    --bold-variant: bold;
+    ---semi-bold-variant: semi-bold;
 
     /* Font-size */
+
     --fs-xxxxl: 5rem; /* Ultra grande */
-    --fs-xxxl: 4rem; /* Super grande*/
+    --fs-xxxl: 4rem; /* Super grande */
     --fs-xxl: 3rem; /* Extra grande */
     --fs-xl: 2.5rem; /* Muy grande */
     --fs-lg: 2rem; /* Grande */
     --fs-md: 1.5rem; /* Mediano */
     --fs-sm: 1.25rem; /* Pequeño */
     --fs-xs: 1rem; /* Base */
-    --fs-xxs: 0.875rem; /* Extra extra pequeño 14px */
-    --fs-xxxs: 0.75rem; /* Minimo 12px */
-    --fs-xxxxs: 0.5rem; /* Minimo 8px */
+    --fs-xxs: 0.875rem; /* Muy pequeño 14px */
+    --fs-xxxs: 0.75rem;/* Extra extra pequeño 12px */
+    --fs-xxxxs: 0.5rem;/* Minimo 8px */
+
+
+
 }

@@ -1,6 +1,7 @@
 export default function Select({
     label,
     name,
+    error,
     options = [],
 }){
     return(
@@ -13,14 +14,20 @@ export default function Select({
 
         <select 
             name={name} 
-            className="
-            w-full 
+            className={`w-full 
             h-12
             rounded-md
             border
             border-border
             px-4
-            "
+
+            hover:border-2
+            hover:border-focus-border
+            
+            ${error ? "border-red-600" : "border border-border"}
+            
+            `}
+            
         >
 
             <option value="">Seleccione una opcion</option>
