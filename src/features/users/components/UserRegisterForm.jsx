@@ -29,49 +29,38 @@ export default function UserRegisterForm() {
                     
                     <Input
                         label="Nombre"
+                        name="userName"
                         placeholder="Ingrese su nombre"
                         onChange={handleNameChange}
                     />
                     <Input
-                        label="Nombre"
-                        placeholder="Ingrese su nombre"
-                    />
-                    <Input
-                        label="Nombre"
-                        placeholder="Ingrese su nombre"
-                    />
-                    <Input
-                        label="Nombre"
-                        placeholder="Ingrese su nombre"
+                        label="Correo"
+                        name="userEmail"
+                        placeholder="Ingrese su correo"
+                        type="email"
                     />
                     <Input
                         label="Teléfono"
+                        name="userPhone"
                         placeholder="Ingrese su telefono"
                         type="tel"
                     />
-                    <Input
-                        label="Correo"
-                        placeholder="Ingrese su correo"
-                        type="email"
-                        onBlur={handleEmailBlur}
-                    />
-                    <Input
-                        label="Contraseña"
-                        placeholder="Ingrese su contraseña"
-                        type="password"
-                    />
-                    <Input
-                        label="Edad"
-                        placeholder="Ingrese su edad"
-                        type="number"
-                    />
-
                     <Select
                         label="Tipo de documento"
                         name="documentType"
                         options={documentTypes}
                     />
-
+                    <Input
+                        label="Numero de documento"
+                        placeholder="Ingrese su numero de documento"
+                        name="documentNumber"
+                    />
+                    <Input
+                        label="Contraseña"
+                        name="userPassword"
+                        placeholder="Ingrese su contraseña"
+                        type="password"
+                    />
                     {/* Actions */}
                     <div className="flex items-end justify-end gap-6">
                         <Button
@@ -91,8 +80,8 @@ export default function UserRegisterForm() {
 
                 </div>
             </form>
-            <DeleteCounter/>
-            <DeleteEffect/>
+
+
             <DeleteCounter2/>
             
         </div>
