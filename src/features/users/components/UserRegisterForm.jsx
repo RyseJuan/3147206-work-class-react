@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getDocumentTypes } from "@/features/users/services/selectServices.js";
-import { Input, Button, Select } from "@/shared";
+import { Input, Button, Select, Checkbox } from "@/shared";
 import { userSchema } from '../schemas/userSchema.js';
 
 
@@ -14,7 +14,13 @@ export default function UserRegisterForm() {
         userDocumentType: "",
         userDocumentNumber: "",
         userPassword: "",
+
+        // Flags booleanos
+        isStaff:false,
+        isActive: true,
+        isSuperUser: false,
     });
+
     const [errors, setErrors] = useState({})
 
     useEffect(() => {
@@ -29,14 +35,14 @@ export default function UserRegisterForm() {
 
     const handleChange = (e) => {
         // Se obtiene el nombre del campo y su valor 
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
 
         setFormData((prev) => ({
             // Se copian todos los valores anteriores del estado
             ...prev,
 
             // Se actualiza unicamente lo que cambió
-            [name]: value,
+            [name]: type === "checkbox" ? checked : value,
         }));
     }
 
@@ -132,6 +138,27 @@ export default function UserRegisterForm() {
                         type="password"
                         onChange={handleChange}
                         error={errors.userPassword}
+                    />
+                    <Checkbox
+                        id="isStaff"
+                        name="isStaff"
+                        label="Es Staff"
+                        checked={formData.isStaff}
+                        onChange={handleChange}
+                    />
+                    <Checkbox
+                        id="isActive"
+                        name="isActive"
+                        label="Está Activo"
+                        checked={formData.isActive}
+                        onChange={handleChange}
+                    />
+                    <Checkbox
+                        id="isAdmin"
+                        name="isAdmin"
+                        label="Es Administrador"
+                        checked={formData.isAdmin}
+                        onChange={handleChange}
                     />
                     {/* Actions */}
                     <div className="flex items-end justify-end gap-6">
