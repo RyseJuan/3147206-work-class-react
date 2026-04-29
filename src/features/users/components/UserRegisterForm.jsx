@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { getDocumentTypes } from "@/features/users/services/selectServices.js";
-import { Input, Button, Select, Checkbox } from "@/shared";
+import { Input, Button, Select, Checkbox, IconButton, Dropdown, DropdownTrigger, DropdownContent ,DropdownItem  } from "@/shared";
 import { userSchema } from '../schemas/userSchema.js';
-
+import { Link, Navigate, useNavigate } from "react-router-dom"
+import { SquareArrowRightEnter, Menu } from "lucide-react";
 
 export default function UserRegisterForm() {
+    const Navigate = useNavigate();
 
     const [documentType, setDocumentType] = useState([]);
     const [formData, setFormData] = useState({
@@ -77,8 +79,8 @@ export default function UserRegisterForm() {
 
     return (
         <div>
-            <h1 className="text-text-primary text-2x1 mb-6">
-                Registro de Usuarios
+            <h1 className="text-text-primary text-2x1 mb-6 text-center">
+                Registro de Usuarios 
             </h1>
 
             <form
@@ -86,7 +88,7 @@ export default function UserRegisterForm() {
             onSubmit={handleSubmit}
             >
             
-                <div className="grid grid-cols-2 gap-6 my-0 mx-auto">
+                <div className="grid grid-cols-2 gap-6 my-0 mx-auto  border-1 p-[48px] rounded-[6px]  pt-6">
                     
                     <Input
                         label="Nombre"
@@ -165,6 +167,7 @@ export default function UserRegisterForm() {
                         <Button
                             variant="secondary"
                             size="sm"
+                            onClick={()=> Navigate(-1)}
                         >
                             Cancelar
                         </Button>
@@ -175,12 +178,49 @@ export default function UserRegisterForm() {
                         >
                             Guardar
                         </Button>
+
+                        {/* Icon button */}
+                        {/* <Link to="/DashboardLayout">
+                            <IconButton
+                            onClick={() => Navigate("/DashboardLayout")}>
+                                <SquareArrowRightEnter/>
+                            </IconButton>
+                        </Link> */}
+
+                        {/* Dropdown */}
+
+                        <div className="p-10">
+                            <Dropdown>
+                                <DropdownTrigger>
+                                    <IconButton ariaLabel="Menú de usuario">
+                                        <Menu/>
+                                    </IconButton>
+                                </DropdownTrigger>
+
+                                <DropdownContent className="right-0 w-48">
+                                    <DropdownItem>
+                                        <Link to="/auth" className="block w-full">
+                                            Autenticación
+                                        </Link>
+                                    </DropdownItem>
+
+                                    <DropdownItem>
+                                        <Link to="/dashboard" className="block w-full">
+                                            Panel de contrpl
+                                        </Link>
+                                    </DropdownItem>
+                                </DropdownContent>
+                            </Dropdown>
+                        </div>
+                        {/* <Link to="/dashboard">
+                            <IconButton
+                            onClick={() => Navigate("/DashboardLayout")}>
+                                <SquareArrowRightEnter/>
+                            </IconButton>
+                        </Link> */}
                     </div>
-
                 </div>
-            </form>
-
-            
+            </form>  
         </div>
     );
 }
