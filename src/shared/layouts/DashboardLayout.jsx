@@ -4,6 +4,8 @@ import { CreateUserPage } from "@/features/users";
 import { Link, Navigate, useNavigate } from "react-router-dom"
 import { ArrowBigLeftDash } from "lucide-react"
 import { IconButton } from "@/shared";
+import { Navbar } from "@/shared";
+
 
 export default function MainLayout () {
     const Navigate = useNavigate();
@@ -21,6 +23,12 @@ export default function MainLayout () {
                         <ArrowBigLeftDash/>
                     </IconButton>
             </Link>
+            <Navbar/>
+                {/* Contenido dinamico de las paginas  */}
+            <main>
+                {/* <CreateUserPage/> */}
+                <Outlet/>
+            </main>
         </div>
     );
 } 

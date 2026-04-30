@@ -8,7 +8,7 @@ import { SquareArrowRightEnter, Menu } from "lucide-react";
 export default function UserRegisterForm() {
     const Navigate = useNavigate();
 
-    const [documentType, setDocumentType] = useState([]);
+    const [documentTypes, setDocumentTypes] = useState([]);
     const [formData, setFormData] = useState({
         userName: "",
         userEmail: "",
@@ -26,7 +26,7 @@ export default function UserRegisterForm() {
     const [errors, setErrors] = useState({})
 
     useEffect(() => {
-        getDocumentTypes().then(setDocumentType);
+        getDocumentTypes().then(setDocumentTypes);
     }, [])
 
     // ==============================================
@@ -120,7 +120,7 @@ export default function UserRegisterForm() {
                         label="Tipo de documento"
                         name="userDocumentType"
                         value={formData.userDocumentType}
-                        options={documentType}
+                        options={documentTypes}
                         onChange={handleChange}
                         error={errors.userDocumentType}
                     />
@@ -206,7 +206,7 @@ export default function UserRegisterForm() {
 
                                     <DropdownItem>
                                         <Link to="/dashboard" className="block w-full">
-                                            Panel de contrpl
+                                            Panel de control
                                         </Link>
                                     </DropdownItem>
                                 </DropdownContent>
