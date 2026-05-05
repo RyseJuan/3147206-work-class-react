@@ -5,6 +5,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom"
 import { ArrowBigLeftDash } from "lucide-react"
 import { IconButton } from "@/shared";
 import { Navbar } from "@/shared";
+import { HomePage } from "@/features/home";
 
 
 export default function MainLayout () {
@@ -27,6 +28,7 @@ export default function MainLayout () {
                 {/* Contenido dinamico de las paginas  */}
             <main>
                 {/* <CreateUserPage/> */}
+                <HomePage/>
                 <Outlet/>
             </main>
         </div>
