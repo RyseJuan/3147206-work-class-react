@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getDocumentTypes } from "@/features/users/services/selectServices.js";
-import { Input, Button, Select, Checkbox, IconButton, Dropdown, DropdownTrigger, DropdownContent ,DropdownItem  } from "@/shared";
+import { Input, Button, Select, Checkbox, IconButton, Dropdown, DropdownTrigger, DropdownContent ,DropdownItem, FileInput } from "@/shared";
 import { userSchema } from '../schemas/userSchema.js';
 import { Link, Navigate, useNavigate } from "react-router-dom"
 import { SquareArrowRightEnter, Menu } from "lucide-react";
@@ -16,6 +16,7 @@ export default function UserRegisterForm() {
         userDocumentType: "",
         userDocumentNumber: "",
         userPassword: "",
+        userImage: [],
 
         // Flags booleanos
         isStaff:false,
@@ -162,6 +163,18 @@ export default function UserRegisterForm() {
                         checked={formData.isAdmin}
                         onChange={handleChange}
                     />
+
+                    <FileInput
+                        value={formData.userImage}
+                        onChange={(files) => 
+                            setFormData((prev) => ({ ...prev, userImage: files }))
+                        }
+                        multiple={true}
+                    />
+                    {errors.userImage && (
+                        <span className="text-red-500 text-sm">{errors.userImage}</span>
+                    )}
+
                     {/* Actions */}
                     <div className="flex items-end justify-end gap-6">
                         <Button

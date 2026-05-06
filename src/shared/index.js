@@ -1,3 +1,4 @@
+export { fileSchema } from "./schemas/fileSchema"
 export { default as Input } from "./components/Input";
 export { default as Button } from "./components/Button" 
 export { default as DeleteCounter } from "./components/DeleteCounter" 
@@ -13,3 +14,4 @@ export { Dropdown, DropdownTrigger, DropdownItem, DropdownContent } from "./comp
 export { default as Navbar } from "./layouts/Navbar"
 export { default as Card } from "./components/Card"
 export { default as Switch} from "./components/Switch"
+export { default as FileInput } from "./components/FileInput"
