@@ -1,10 +1,21 @@
 import { Search, User } from "lucide-react";
 import { Link } from "react-router-dom"
-import { IconButton, Dropdown, DropdownTrigger, DropdownContent ,DropdownItem, Switch } from "@/shared";
+import { IconButton, Dropdown, DropdownTrigger, DropdownContent ,DropdownItem, Switch, SearchField } from "@/shared";
 import logo from "@/assets/images/logo-1.png"
 import { useState } from "react";
 
 export default function Navbar(){
+    
+    // Componente de busqueda
+    const [search, setSearch] = useState("");
+
+    const handleSearch = (value) => {
+        console.log("Buscar", value);
+    };
+
+    const handleClear = () => {
+        console.log("Campo limpiado");
+    }
 
     // Estado que controla el switch
     const [isActive, setIsActive] = useState(true);
@@ -29,7 +40,7 @@ export default function Navbar(){
 
                     {/* Este logo esta dentro de la segunda caja */}
                     <div className="flex items-center">
-                        <Link to={"/"} className="text-h1 font-heading ">
+                        <Link to={"/dashboard/home"} className="text-h1 font-heading hidden sm:inline-flex   ">
                             <img src={logo} alt="" className="h-12" />
                         </Link>
                     </div>
@@ -39,6 +50,7 @@ export default function Navbar(){
                         checked={isActive}
                         onChange={handleStatusChange}
                         size="md"
+                        className= "hidden sm:inline-flex"
                     />
 
                     {/* Links de navegación */}
@@ -59,6 +71,18 @@ export default function Navbar(){
                             <Link to={"/lavadora"} className="hover:text-primary transition">Lavadora</Link>
                         </li>
                     </ul>
+
+                    <SearchField
+                        value={search}
+                        onChange={setSearch}
+                        onSubmit={handleSearch}
+                        onClear={handleClear}
+                        placeholder="Buscar productos..."
+                        size="md"
+                        variant="outlined"
+                        className="w-76"
+                    />
+
                     {/* Seccion de la derecha: busqueda + usuario */}
                     <div className="flex items-center gap-4">
                             {/* Icono de Buscador */}
@@ -66,11 +90,11 @@ export default function Navbar(){
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-500"/>
                         
                             {/* Input */}
-                        <input
+                        {/* <input
                             type="text"
                             placeholder="Buscar en mileroticos"
                             className="pl-9 pr-4 py-2.5 border rounded-lg text-body focus:outline-none focus:ring-2 focus:ring-text-primary"
-                        />
+                        /> */}
                         </div>
 
                             {/* Icono del usuario */}
@@ -104,6 +128,12 @@ export default function Navbar(){
                                     <DropdownItem>
                                         <Link to="/dashboard/auth" className="block w-full">
                                             Cerrar sesión
+                                        </Link>
+                                    </DropdownItem>
+
+                                    <DropdownItem>
+                                        <Link to="/dashboard/UserList" className="block w-full">
+                                            Gestionar usuarios
                                         </Link>
                                     </DropdownItem>
 
